@@ -13,6 +13,8 @@
 #include <string.h>
 #include <ctype.h>
 #include "hojaServicio.h"
+//#include "informes.h"
+#include "inputs.h"
 
 typedef struct
 {
@@ -30,6 +32,9 @@ int hardcodearVehiculos(eVehiculo array[], int size, int elements, int* pnextId,
 
 int altaVehiculo(eVehiculo array[], int size, int* pNextId); // OK
 int buscarLibre(eVehiculo array[], int size); //OK
+
+int buscarIdMayor(eVehiculo array[], int size);
+int buscarIdMenor(eVehiculo array[], int size);
 
 int modificarVehiculo(eVehiculo arrayVehiculos[], int sizeV, eHojaServicio arrayServicios[], int sizeServ);//OK - REFACTOR
 int serviciosPorVehiculo(eVehiculo arrayVehiculos[], int sizeV, eHojaServicio arrayServicios[], int sizeServ, int idVehiculo);

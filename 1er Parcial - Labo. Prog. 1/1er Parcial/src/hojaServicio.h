@@ -8,11 +8,11 @@
 #ifndef HOJASERVICIO_H_
 #define HOJASERVICIO_H_
 
-//#include "vehiculo.h" ---> VER SI ROMPE CUANDO FUNCIONE MODIFICAR VEHICULO
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+//#include "vehiculo.h" // ---> VER SI ROMPE CUANDO FUNCIONE MODIFICAR VEHICULO
 
 typedef struct
 {
@@ -36,7 +36,8 @@ typedef struct
 int inicializarServicios(eHojaServicio array[], int size);
 int hardcodearServicios(eHojaServicio array[], int size, int elements, int* pNextId, int* flag);
 
-int altaServicio(eHojaServicio array[], int size); //
+//int altaServicio(eHojaServicio array[], int size, int* pNextId, eVehiculo arrayV[], int sizeV);//
+int buscarLibreServicio(eHojaServicio array[], int size);
 
 int buscarServicio(eHojaServicio array[], int size,int id, int* pIndex);
 

@@ -67,3 +67,21 @@ int listarTipos(eTipo array[], int size)
 	}
 	return retorno;
 }
+
+eTipo buscarPorId(eTipo array[], int size, int id)
+{
+	eTipo auxTipo;
+
+	if(array != NULL && size >0)
+	{
+		for(int i=0; i<size; i++)
+		{
+			if(array[i].idTipo == id)
+			{
+				auxTipo = array[i];
+			}
+		}
+	}
+
+		return auxTipo;
+}

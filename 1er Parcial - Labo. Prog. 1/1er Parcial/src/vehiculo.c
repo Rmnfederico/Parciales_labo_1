@@ -88,6 +88,7 @@ int altaVehiculo(eVehiculo array[], int size, int* pNextId)
 			printf("\nIngrese descripcion:");
 			fflush(stdin);
 			fgets(auxVehiculo.descripcion,20,stdin);
+			normalizarCadena(auxVehiculo.descripcion);
 
 			printf("\nIngrese el modelo:");
 			scanf("%d", &auxVehiculo.modelo);
@@ -95,6 +96,7 @@ int altaVehiculo(eVehiculo array[], int size, int* pNextId)
 			printf("\nIngrese el color:");
 			fflush(stdin);
 			fgets(auxVehiculo.color,20,stdin);
+			normalizarCadena(auxVehiculo.color);
 
 			printf("Ingrese el tipo:");
 			scanf("%d", &auxVehiculo.tipoId);
@@ -226,6 +228,10 @@ int modificarVehiculo(eVehiculo arrayVehiculos[], int sizeV, eHojaServicio array
 				printf("No existe un vehiculo con id %d en el sistema.\n", id);
 			}else
 			{
+				//Func mostrarEncabezado() --> IMPLEMENTAR
+				printf("\n--------------------------------------------------------------------\n");
+				printf("|    ID    |  Descripcion    |     Modelo    |  Color  |  ID Tipo |\n");
+				printf("|------------------------------------------------------------------\n");
 				mostrarVehiculoFila(arrayVehiculos[indice]);
 
 				switch(menuModificarVehiculo())
@@ -295,8 +301,11 @@ int eliminarVehiculo(eVehiculo array[], int size)
 				printf("No existe un vehiculo con id %d en el sistema.\n", id);
 			}else
 			{
+				printf("\n--------------------------------------------------------------------\n");
+				printf("|    ID    |  Descripcion    |     Modelo    |  Color  |  ID Tipo |\n");
+				printf("|------------------------------------------------------------------\n");
 				mostrarVehiculoFila( array[indice]);
-				printf("Confirmar eliminacion?");
+				printf("Confirmar eliminacion? (s/S = SI)");
 				fflush(stdin);
 				scanf("%c", &confirmacion);
 
@@ -314,4 +323,37 @@ int eliminarVehiculo(eVehiculo array[], int size)
 	}
 
 	return retorno;
+}
+
+int buscarIdMayor(eVehiculo array[], int size)
+{
+	int mayor;
+	if(array != NULL && size > 0)
+	{
+		for(int i = 0; i<size; i++)
+		{
+			if(i == 0 || array[i].idVehiculo > mayor)
+			{
+				mayor = array[i].idVehiculo;
+			}
+		}
+	}
+
+	return mayor;
+}
+
+int buscarIdMenor(eVehiculo array[], int size)
+{
+	int menor;
+	if(array != NULL && size > 0)
+	{
+		for(int i = 0; i<size; i++)
+		{
+			if(i == 0 || array[i].idVehiculo < menor)
+			{
+				menor = array[i].idVehiculo;
+			}
+		}
+	}
+	return menor;
 }

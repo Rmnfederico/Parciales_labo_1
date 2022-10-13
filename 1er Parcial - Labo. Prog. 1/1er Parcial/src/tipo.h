@@ -32,4 +32,6 @@ void mostrarTipoColumnaConId(eTipo item);
 
 int listarTipos(eTipo array[], int size);
 
+eTipo buscarPorId(eTipo array[], int size, int id);
+
 #endif /* TIPO_H_ */
